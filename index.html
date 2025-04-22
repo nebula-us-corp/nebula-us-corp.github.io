@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nebula | End-to-End Software Solutions</title>
+    <title>Nebula | Software & Business Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -85,23 +85,26 @@
     </style>
 </head>
 <body class="bg-nebula-dark text-galaxy-light">
+    <div id="top"></div>
+
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-nebula-dark/90 backdrop-blur-md border-b border-nebula-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nebula-accent to-nebula-secondary flex items-center justify-center text-white">
-                            <i class="fas fa-stars"></i>
+                    <a href="#top" class="flex items-center">
+                        <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                            <img src="/assets/images/logo.png" alt="Nebula Logo" class="w-full h-full object-contain">
                         </div>
                         <span class="ml-3 text-xl font-bold text-white">Nebula</span>
-                    </div>
+                    </a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#solutions" class="nav-link text-white px-3 py-2 text-sm font-medium">Solutions</a>
                         <a href="#services" class="nav-link text-white px-3 py-2 text-sm font-medium">Services</a>
                         <a href="#process" class="nav-link text-white px-3 py-2 text-sm font-medium">Process</a>
+                        <a href="#apps" class="nav-link text-white px-3 py-2 text-sm font-medium">Our Apps</a>
                         <a href="#about" class="nav-link text-white px-3 py-2 text-sm font-medium">About</a>
                         <a href="#contact" class="nav-link text-white px-3 py-2 text-sm font-medium">Contact</a>
                     </div>
@@ -126,6 +129,7 @@
                 <a href="#solutions" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Solutions</a>
                 <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Services</a>
                 <a href="#process" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Process</a>
+                <a href="#apps" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Our Apps</a>
                 <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">About</a>
                 <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Contact</a>
             </div>
@@ -143,7 +147,7 @@
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <div class="mb-12 lg:mb-0">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                        <span class="text-nebula-light">Cosmic</span> Software Solutions
+                        <span class="text-nebula-light">Cosmic</span> Software & Business Solutions
                     </h1>
                     <p class="text-xl text-nebula-light mb-8">
                         We build end-to-end digital platforms that propel your business into the future. From custom applications to data-driven strategies, we're your technology constellation.
@@ -168,34 +172,56 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
+    
+    <!-- Technology Stack Section -->
     <section class="py-12 bg-nebula-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-nebula-light mb-8">Trusted by innovative businesses across the galaxy</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            <p class="text-center text-nebula-light mb-8">
+                We harness cutting-edge technologies to deliver smart, scalable solutions
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+                <!-- React -->
                 <div class="flex justify-center">
                     <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-                        <i class="fab fa-space-awesome text-5xl"></i>
+                        <i class="fab fa-react text-5xl" title="React"></i>
                     </div>
                 </div>
+                <!-- Node.js -->
                 <div class="flex justify-center">
                     <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-                        <i class="fas fa-meteor text-5xl"></i>
+                        <i class="fab fa-node-js text-5xl" title="Node.js"></i>
                     </div>
                 </div>
+                <!-- Cloud -->
                 <div class="flex justify-center">
                     <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-                        <i class="fas fa-satellite text-5xl"></i>
+                        <i class="fas fa-cloud text-5xl" title="Cloud Infrastructure"></i>
                     </div>
                 </div>
+                <!-- Databases -->
                 <div class="flex justify-center">
                     <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-                        <i class="fas fa-rocket text-5xl"></i>
+                        <i class="fas fa-database text-5xl" title="Modern Databases"></i>
+                    </div>
+                </div>
+                <!-- Analytics -->
+                <div class="flex justify-center">
+                    <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                        <i class="fas fa-chart-line text-5xl" title="Analytics & Insights"></i>
+                    </div>
+                </div>
+                <!-- AI -->
+                <div class="flex justify-center">
+                    <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                        <i class="fas fa-robot text-5xl" title="Artificial Intelligence"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
+
 
     <!-- Solutions Section -->
     <section id="solutions" class="py-20 bg-nebula-dark">
@@ -282,6 +308,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-gradient-to-b from-nebula-dark to-nebula-primary">
@@ -376,6 +403,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Process Section -->
     <section id="process" class="py-20 bg-nebula-primary">
@@ -481,47 +509,62 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-nebula-dark">
+
+    <!-- Our Apps Section -->
+    <section id="apps" class="py-20 bg-nebula-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-                <div class="mb-12 lg:mb-0">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-                        We Are <span class="text-nebula-light">Nebula</span>
-                    </h2>
-                    <p class="text-galaxy-accent mb-6">
-                        Founded in 2020, Nebula is a technology solutions provider dedicated to helping businesses navigate the complex digital universe. Our team of experienced developers, designers, and strategists come together to create solutions that are as unique as the constellations.
-                    </p>
-                    <p class="text-galaxy-accent mb-8">
-                        We believe technology should empower businesses, not complicate them. That's why we focus on delivering maintainable, scalable solutions that grow with your organization.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
-                            <h4 class="font-bold text-white mb-1">50+</h4>
-                            <p class="text-sm text-galaxy-accent">Successful Projects</p>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our <span class="text-nebula-light">In-House</span> Applications</h2>
+                <p class="max-w-2xl mx-auto text-xl text-galaxy-accent">
+                    Discover the innovative applications we're building to solve real-world problems.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-1 gap-8">
+                <div class="bg-nebula-primary rounded-xl p-8 border border-nebula-secondary hover:border-nebula-accent transition duration-300">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center">
+                            <div class="w-48 h-48 rounded-xl bg-gradient-to-br from-nebula-secondary to-nebula-accent flex items-center justify-center text-white shadow-lg">
+                                <div class="flex flex-col items-center space-y-4">
+                                    <i class="fas fa-mobile-alt text-6xl"></i>
+                                    <img src="/assets/images/nebula_pwa.jpeg" alt="Nebula PWA Logo" class="w-16 h-16 rounded-full object-contain border border-white">
+                                </div>                                  
+                            </div>
                         </div>
-                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
-                            <h4 class="font-bold text-white mb-1">15+</h4>
-                            <p class="text-sm text-galaxy-accent">Industry Experts</p>
-                        </div>
-                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
-                            <h4 class="font-bold text-white mb-1">100%</h4>
-                            <p class="text-sm text-galaxy-accent">Client Satisfaction</p>
-                        </div>
-                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
-                            <h4 class="font-bold text-white mb-1">24/7</h4>
-                            <p class="text-sm text-galaxy-accent">Support Available</p>
+                        <div class="md:w-2/3 md:pl-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-2xl font-bold text-white">Nebula PWA</h3>
+                                <a href="https://nebula-pwa.github.io/" target="_blank" class="app-badge px-6 py-2 bg-nebula-light text-nebula-dark rounded-full flex items-center hover:bg-nebula-accent hover:text-white transition duration-300">
+                                    <i class="fas fa-globe mr-2"></i> Visit PWA info Hub
+                                </a>
+                            </div>
+                            <p class="text-galaxy-accent mb-4">
+                                Our flagship Progressive Web Application that showcases our technical capabilities. Built with modern web technologies, it offers an app-like experience across all mobile devices with offline functionality, in-app notifications, and seamless updates.
+                            </p>
+                            <div class="flex flex-wrap gap-4 mt-6">
+                                <span href="#" class="app-badge px-6 py-2 bg-nebula-accent text-white rounded-full flex items-center">
+                                    <i class="fab fa-google-play mr-2"></i> Coming Soon
+                                </span>
+                                <span href="#" class="app-badge px-6 py-2 bg-nebula-secondary text-white rounded-full flex items-center">
+                                    <i class="fab fa-apple mr-2"></i> Coming Soon
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Nebula team" class="rounded-xl shadow-2xl border-4 border-nebula-light">
-                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-nebula-accent rounded-full opacity-20 blur-xl"></div>
-                    <div class="absolute -top-6 -right-6 w-40 h-40 bg-nebula-secondary rounded-full opacity-20 blur-xl"></div>
-                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-galaxy-accent mb-6">
+                    More applications are currently in development as part of our innovation pipeline.
+                </p>
+                <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-nebula-dark bg-nebula-light hover:bg-white transition duration-300">
+                    <i class="fas fa-lightbulb mr-2"></i> Suggest an App Idea
+                </a>
             </div>
         </div>
     </section>
+
 
     <!-- Testimonials -->
     <section class="py-20 bg-nebula-primary">
@@ -603,6 +646,49 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-nebula-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        We Are <span class="text-nebula-light">Nebula</span>
+                    </h2>
+                    <p class="text-galaxy-accent mb-6">
+                        Founded in 2020, Nebula is a technology solutions provider dedicated to helping businesses navigate the complex digital universe. Our team of experienced developers, designers, and strategists come together to create solutions that are as unique as the constellations.
+                    </p>
+                    <p class="text-galaxy-accent mb-8">
+                        We believe technology should empower businesses, not complicate them. That's why we focus on delivering maintainable, scalable solutions that grow with your organization.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
+                            <h4 class="font-bold text-white mb-1">50+</h4>
+                            <p class="text-sm text-galaxy-accent">Successful Projects</p>
+                        </div>
+                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
+                            <h4 class="font-bold text-white mb-1">15+</h4>
+                            <p class="text-sm text-galaxy-accent">Industry Experts</p>
+                        </div>
+                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
+                            <h4 class="font-bold text-white mb-1">100%</h4>
+                            <p class="text-sm text-galaxy-accent">Client Satisfaction</p>
+                        </div>
+                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
+                            <h4 class="font-bold text-white mb-1">24/7</h4>
+                            <p class="text-sm text-galaxy-accent">Support Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="/assets/images/nebula_team.png" alt="Nebula team" class="rounded-xl shadow-2xl border-4 border-nebula-light">
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-nebula-accent rounded-full opacity-20 blur-xl"></div>
+                    <div class="absolute -top-6 -right-6 w-40 h-40 bg-nebula-secondary rounded-full opacity-20 blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gradient-to-b from-nebula-primary to-nebula-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -683,6 +769,7 @@
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer class="bg-nebula-dark border-t border-nebula-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -749,6 +836,7 @@
             </div>
         </div>
     </footer>
+
 
     <script>
         // Mobile menu toggle
