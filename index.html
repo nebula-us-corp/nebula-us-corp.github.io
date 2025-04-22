@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula | End-to-End Software Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nebula: {
+                            dark: '#0f0524',
+                            primary: '#2a0b45',
+                            secondary: '#4a148c',
+                            accent: '#7b1fa2',
+                            light: '#e1bee7',
+                        },
+                        galaxy: {
+                            dark: '#0d1b2a',
+                            primary: '#1b263b',
+                            secondary: '#415a77',
+                            accent: '#778da9',
+                            light: '#e0e1dd',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-nebula': 'linear-gradient(135deg, #2a0b45 0%, #4a148c 50%, #7b1fa2 100%)',
+                        'stars-pattern': "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(42,11,69,0.95) 0%, rgba(74,20,140,0.95) 50%, rgba(123,31,162,0.95) 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #e1bee7;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-nebula-dark text-galaxy-light">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-nebula-dark/90 backdrop-blur-md border-b border-nebula-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nebula-accent to-nebula-secondary flex items-center justify-center text-white">
+                            <i class="fas fa-stars"></i>
+                        </div>
+                        <span class="ml-3 text-xl font-bold text-white">Nebula</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#solutions" class="nav-link text-white px-3 py-2 text-sm font-medium">Solutions</a>
+                        <a href="#services" class="nav-link text-white px-3 py-2 text-sm font-medium">Services</a>
+                        <a href="#process" class="nav-link text-white px-3 py-2 text-sm font-medium">Process</a>
+                        <a href="#about" class="nav-link text-white px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#contact" class="nav-link text-white px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#contact" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-nebula-dark bg-nebula-light hover:bg-white transition duration-150">
+                        Get Started
+                    </a>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-nebula-light hover:text-white hover:bg-nebula-primary focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-nebula-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#solutions" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Solutions</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Services</a>
+                <a href="#process" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Process</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">About</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Contact</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-nebula-secondary px-3">
+                <a href="#contact" class="block w-full px-4 py-2 text-center rounded-md shadow bg-nebula-light text-nebula-dark font-medium hover:bg-white">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient bg-stars-pattern pt-32 pb-20 md:pt-40 md:pb-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                        <span class="text-nebula-light">Cosmic</span> Software Solutions
+                    </h1>
+                    <p class="text-xl text-nebula-light mb-8">
+                        We build end-to-end digital platforms that propel your business into the future. From custom applications to data-driven strategies, we're your technology constellation.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="px-8 py-3 bg-nebula-light text-nebula-dark font-semibold rounded-lg hover:bg-white transition duration-300 text-center">
+                            Launch Project
+                        </a>
+                        <a href="#services" class="px-8 py-3 border-2 border-nebula-light text-white font-semibold rounded-lg hover:bg-nebula-primary transition duration-300 text-center">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative z-10 animate-float">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Digital transformation" class="rounded-xl shadow-2xl border-4 border-nebula-light">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-nebula-accent rounded-full opacity-20 blur-xl"></div>
+                    <div class="absolute -top-6 -right-6 w-40 h-40 bg-nebula-secondary rounded-full opacity-20 blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-12 bg-nebula-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-nebula-light mb-8">Trusted by innovative businesses across the galaxy</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="flex justify-center">
+                    <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                        <i class="fab fa-space-awesome text-5xl"></i>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                        <i class="fas fa-meteor text-5xl"></i>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                        <i class="fas fa-satellite text-5xl"></i>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                        <i class="fas fa-rocket text-5xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-nebula-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Digital Solutions That <span class="text-nebula-light">Orbit</span> Your Needs</h2>
+                <p class="max-w-2xl mx-auto text-xl text-galaxy-accent">
+                    We don't just build software—we architect digital ecosystems tailored to your business universe.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-nebula-primary rounded-xl p-8 border border-nebula-secondary hover:border-nebula-accent transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-6">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Web Platforms</h3>
+                    <p class="text-galaxy-accent mb-4">
+                        High-performance websites and web applications that engage customers and streamline operations.
+                    </p>
+                    <ul class="space-y-2 text-galaxy-accent">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            E-commerce solutions
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            CMS implementations
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            Progressive web apps
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-nebula-primary rounded-xl p-8 border border-nebula-secondary hover:border-nebula-accent transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-6">
+                        <i class="fas fa-mobile-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Custom Applications</h3>
+                    <p class="text-galaxy-accent mb-4">
+                        Bespoke software designed to solve your unique business challenges with precision.
+                    </p>
+                    <ul class="space-y-2 text-galaxy-accent">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            Business process automation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            Data visualization dashboards
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            Cross-platform mobile apps
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-nebula-primary rounded-xl p-8 border border-nebula-secondary hover:border-nebula-accent transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-6">
+                        <i class="fas fa-database text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">IT Infrastructure</h3>
+                    <p class="text-galaxy-accent mb-4">
+                        Robust technology foundations that scale with your business ambitions.
+                    </p>
+                    <ul class="space-y-2 text-galaxy-accent">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            Cloud migrations
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            System integrations
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-nebula-light mr-2"></i>
+                            DevOps implementation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-to-b from-nebula-dark to-nebula-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our <span class="text-nebula-light">Stellar</span> Services</h2>
+                <p class="max-w-2xl mx-auto text-xl text-galaxy-accent">
+                    Comprehensive technology services from strategy to implementation and beyond.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="service-card bg-nebula-primary rounded-xl p-6 border border-nebula-secondary transition duration-300 hover:border-nebula-accent">
+                    <div class="w-14 h-14 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-4">
+                        <i class="fas fa-lightbulb text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Discovery & Strategy</h3>
+                    <p class="text-galaxy-accent">
+                        We analyze your business needs and craft a technology roadmap aligned with your goals.
+                    </p>
+                </div>
+                
+                <div class="service-card bg-nebula-primary rounded-xl p-6 border border-nebula-secondary transition duration-300 hover:border-nebula-accent">
+                    <div class="w-14 h-14 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-4">
+                        <i class="fas fa-laptop-code text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Custom Development</h3>
+                    <p class="text-galaxy-accent">
+                        Tailored software solutions built with modern architectures and best practices.
+                    </p>
+                </div>
+                
+                <div class="service-card bg-nebula-primary rounded-xl p-6 border border-nebula-secondary transition duration-300 hover:border-nebula-accent">
+                    <div class="w-14 h-14 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-4">
+                        <i class="fas fa-project-diagram text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">System Integration</h3>
+                    <p class="text-galaxy-accent">
+                        Seamlessly connect your existing systems with new technologies for unified operations.
+                    </p>
+                </div>
+                
+                <div class="service-card bg-nebula-primary rounded-xl p-6 border border-nebula-secondary transition duration-300 hover:border-nebula-accent">
+                    <div class="w-14 h-14 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-4">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Data Analytics</h3>
+                    <p class="text-galaxy-accent">
+                        Transform raw data into actionable insights that drive business decisions.
+                    </p>
+                </div>
+                
+                <div class="service-card bg-nebula-primary rounded-xl p-6 border border-nebula-secondary transition duration-300 hover:border-nebula-accent">
+                    <div class="w-14 h-14 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-4">
+                        <i class="fas fa-cloud text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Cloud Services</h3>
+                    <p class="text-galaxy-accent">
+                        Scalable cloud infrastructure and platform solutions for modern businesses.
+                    </p>
+                </div>
+                
+                <div class="service-card bg-nebula-primary rounded-xl p-6 border border-nebula-secondary transition duration-300 hover:border-nebula-accent">
+                    <div class="w-14 h-14 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-4">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Security</h3>
+                    <p class="text-galaxy-accent">
+                        Comprehensive security assessments and implementations to protect your assets.
+                    </p>
+                </div>
+                
+                <div class="service-card bg-nebula-primary rounded-xl p-6 border border-nebula-secondary transition duration-300 hover:border-nebula-accent">
+                    <div class="w-14 h-14 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-4">
+                        <i class="fas fa-headset text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Support</h3>
+                    <p class="text-galaxy-accent">
+                        Ongoing maintenance and support to keep your systems running smoothly.
+                    </p>
+                </div>
+                
+                <div class="service-card bg-nebula-primary rounded-xl p-6 border border-nebula-secondary transition duration-300 hover:border-nebula-accent">
+                    <div class="w-14 h-14 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mb-4">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Training</h3>
+                    <p class="text-galaxy-accent">
+                        Empower your team with the knowledge to effectively use your new systems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-nebula-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our <span class="text-nebula-light">Orbital</span> Process</h2>
+                <p class="max-w-2xl mx-auto text-xl text-galaxy-accent">
+                    A structured approach that ensures successful project delivery every time.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 h-full w-1 bg-nebula-secondary transform -translate-x-1/2"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-12 md:space-y-0">
+                    <!-- Item 1 -->
+                    <div class="relative md:flex justify-center items-center">
+                        <div class="md:w-5/12 md:pr-12 mb-8 md:mb-0 md:text-right">
+                            <h3 class="text-2xl font-bold text-white mb-2">Discovery</h3>
+                            <p class="text-galaxy-accent">
+                                We begin by understanding your business objectives, challenges, and technical requirements through in-depth consultations.
+                            </p>
+                        </div>
+                        <div class="hidden md:flex w-16 h-16 rounded-full bg-nebula-accent border-4 border-nebula-secondary items-center justify-center text-white mx-6 flex-shrink-0 z-10">
+                            <span class="text-2xl font-bold">1</span>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12"></div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="relative md:flex justify-center items-center">
+                        <div class="md:w-5/12 md:pr-12"></div>
+                        <div class="hidden md:flex w-16 h-16 rounded-full bg-nebula-accent border-4 border-nebula-secondary items-center justify-center text-white mx-6 flex-shrink-0 z-10">
+                            <span class="text-2xl font-bold">2</span>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12 mb-8 md:mb-0">
+                            <h3 class="text-2xl font-bold text-white mb-2">Planning</h3>
+                            <p class="text-galaxy-accent">
+                                Our team creates a detailed project plan with milestones, deliverables, and technology stack recommendations.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="relative md:flex justify-center items-center">
+                        <div class="md:w-5/12 md:pr-12 mb-8 md:mb-0 md:text-right">
+                            <h3 class="text-2xl font-bold text-white mb-2">Design</h3>
+                            <p class="text-galaxy-accent">
+                                We develop wireframes, prototypes, and system architectures that bring your vision to life.
+                            </p>
+                        </div>
+                        <div class="hidden md:flex w-16 h-16 rounded-full bg-nebula-accent border-4 border-nebula-secondary items-center justify-center text-white mx-6 flex-shrink-0 z-10">
+                            <span class="text-2xl font-bold">3</span>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12"></div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="relative md:flex justify-center items-center">
+                        <div class="md:w-5/12 md:pr-12"></div>
+                        <div class="hidden md:flex w-16 h-16 rounded-full bg-nebula-accent border-4 border-nebula-secondary items-center justify-center text-white mx-6 flex-shrink-0 z-10">
+                            <span class="text-2xl font-bold">4</span>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12 mb-8 md:mb-0">
+                            <h3 class="text-2xl font-bold text-white mb-2">Development</h3>
+                            <p class="text-galaxy-accent">
+                                Our developers build your solution using agile methodologies with regular progress updates.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="relative md:flex justify-center items-center">
+                        <div class="md:w-5/12 md:pr-12 mb-8 md:mb-0 md:text-right">
+                            <h3 class="text-2xl font-bold text-white mb-2">Testing</h3>
+                            <p class="text-galaxy-accent">
+                                We rigorously test all components to ensure functionality, performance, and security standards are met.
+                            </p>
+                        </div>
+                        <div class="hidden md:flex w-16 h-16 rounded-full bg-nebula-accent border-4 border-nebula-secondary items-center justify-center text-white mx-6 flex-shrink-0 z-10">
+                            <span class="text-2xl font-bold">5</span>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12"></div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="relative md:flex justify-center items-center">
+                        <div class="md:w-5/12 md:pr-12"></div>
+                        <div class="hidden md:flex w-16 h-16 rounded-full bg-nebula-accent border-4 border-nebula-secondary items-center justify-center text-white mx-6 flex-shrink-0 z-10">
+                            <span class="text-2xl font-bold">6</span>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12">
+                            <h3 class="text-2xl font-bold text-white mb-2">Deployment</h3>
+                            <p class="text-galaxy-accent">
+                                We launch your solution and provide comprehensive training and documentation for your team.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-nebula-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        We Are <span class="text-nebula-light">Nebula</span>
+                    </h2>
+                    <p class="text-galaxy-accent mb-6">
+                        Founded in 2020, Nebula is a technology solutions provider dedicated to helping businesses navigate the complex digital universe. Our team of experienced developers, designers, and strategists come together to create solutions that are as unique as the constellations.
+                    </p>
+                    <p class="text-galaxy-accent mb-8">
+                        We believe technology should empower businesses, not complicate them. That's why we focus on delivering maintainable, scalable solutions that grow with your organization.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
+                            <h4 class="font-bold text-white mb-1">50+</h4>
+                            <p class="text-sm text-galaxy-accent">Successful Projects</p>
+                        </div>
+                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
+                            <h4 class="font-bold text-white mb-1">15+</h4>
+                            <p class="text-sm text-galaxy-accent">Industry Experts</p>
+                        </div>
+                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
+                            <h4 class="font-bold text-white mb-1">100%</h4>
+                            <p class="text-sm text-galaxy-accent">Client Satisfaction</p>
+                        </div>
+                        <div class="bg-nebula-primary rounded-lg p-4 border border-nebula-secondary">
+                            <h4 class="font-bold text-white mb-1">24/7</h4>
+                            <p class="text-sm text-galaxy-accent">Support Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Nebula team" class="rounded-xl shadow-2xl border-4 border-nebula-light">
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-nebula-accent rounded-full opacity-20 blur-xl"></div>
+                    <div class="absolute -top-6 -right-6 w-40 h-40 bg-nebula-secondary rounded-full opacity-20 blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-nebula-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">What Our <span class="text-nebula-light">Clients</span> Say</h2>
+                <p class="max-w-2xl mx-auto text-xl text-galaxy-accent">
+                    Don't just take our word for it—here's what our partners have to say.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-nebula-dark rounded-xl p-8 border border-nebula-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mr-4">
+                            <i class="fas fa-user-astronaut text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Sarah Johnson</h4>
+                            <p class="text-sm text-galaxy-accent">CEO, Stellar Solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-galaxy-accent italic">
+                        "Nebula transformed our e-commerce platform with their custom solution. Their team was professional, communicative, and delivered beyond our expectations."
+                    </p>
+                    <div class="mt-4 text-nebula-light">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-nebula-dark rounded-xl p-8 border border-nebula-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mr-4">
+                            <i class="fas fa-user-astronaut text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Michael Chen</h4>
+                            <p class="text-sm text-galaxy-accent">CTO, Galactic Tech</p>
+                        </div>
+                    </div>
+                    <p class="text-galaxy-accent italic">
+                        "The system integration work Nebula performed connected five of our legacy systems seamlessly. Their expertise saved us months of development time."
+                    </p>
+                    <div class="mt-4 text-nebula-light">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-nebula-dark rounded-xl p-8 border border-nebula-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mr-4">
+                            <i class="fas fa-user-astronaut text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Emily Rodriguez</h4>
+                            <p class="text-sm text-galaxy-accent">Director, Cosmic Analytics</p>
+                        </div>
+                    </div>
+                    <p class="text-galaxy-accent italic">
+                        "Nebula's data visualization dashboards have given us insights we never knew were possible. Their team truly understands business intelligence."
+                    </p>
+                    <div class="mt-4 text-nebula-light">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-nebula-primary to-nebula-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Ready for <span class="text-nebula-light">Liftoff</span>?
+                    </h2>
+                    <p class="text-galaxy-accent mb-8 text-xl">
+                        Let's discuss how we can propel your business forward with custom technology solutions.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Email Us</h4>
+                                <p class="text-galaxy-accent">contact@nebulatech.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Call Us</h4>
+                                <p class="text-galaxy-accent">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Visit Us</h4>
+                                <p class="text-galaxy-accent">123 Cosmic Way, Suite 456<br>San Francisco, CA 94107</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light hover:bg-nebula-accent transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light hover:bg-nebula-accent transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-nebula-secondary flex items-center justify-center text-nebula-light hover:bg-nebula-accent transition duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-nebula-dark rounded-xl p-8 border border-nebula-secondary">
+                    <h3 class="text-2xl font-bold text-white mb-6">Send Us a Message</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-galaxy-accent mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-nebula-primary border border-nebula-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-nebula-accent text-white placeholder-galaxy-accent" placeholder="Your name">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-galaxy-accent mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-nebula-primary border border-nebula-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-nebula-accent text-white placeholder-galaxy-accent" placeholder="Your email">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-galaxy-accent mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 bg-nebula-primary border border-nebula-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-nebula-accent text-white placeholder-galaxy-accent" placeholder="Subject">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-galaxy-accent mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-nebula-primary border border-nebula-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-nebula-accent text-white placeholder-galaxy-accent" placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-nebula-accent text-white font-semibold rounded-lg hover:bg-nebula-light hover:text-nebula-dark transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-nebula-dark border-t border-nebula-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nebula-accent to-nebula-secondary flex items-center justify-center text-white">
+                            <i class="fas fa-stars"></i>
+                        </div>
+                        <span class="ml-3 text-xl font-bold text-white">Nebula</span>
+                    </div>
+                    <p class="text-galaxy-accent mb-4">
+                        End-to-end software solutions and data-driven business strategies for the modern enterprise.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Solutions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Web Platforms</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Custom Applications</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">IT Infrastructure</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Data Analytics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Discovery & Strategy</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Custom Development</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">System Integration</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Support & Training</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">About Us</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Careers</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Blog</a></li>
+                        <li><a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-nebula-primary mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-galaxy-accent mb-4 md:mb-0">
+                    &copy; 2023 Nebula Technologies. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Privacy Policy</a>
+                    <a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Terms of Service</a>
+                    <a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
