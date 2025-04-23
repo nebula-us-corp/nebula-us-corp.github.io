@@ -9,8 +9,14 @@ Structure:
 /nebula-us-corp root
 │
 ├── index.html
+├── site.webmanifest
 ├── README.md
 ├── /assets
 │   └── /images
 │       └── logo.png
-
+│       └── nebula_pwa_rm.png
+│       └── nebula_pwa.jpeg
+│       └── nebula_team.png
+├── /public
+│   └── /js
+│       └── contact.js
