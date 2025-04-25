@@ -23,10 +23,10 @@
     <meta name="google-site-verification" content="HC4Xy0HQnM6_XKDHNyNm-yN1hvrnglfV_tGAFkcYSjI" />
 
     <!-- Favicon and Apple Touch Icons -->
-    <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
     <!-- Preload important resources -->
@@ -37,7 +37,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.7.0/email.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.7.0/email.min.js"></script> -->
 
     <script>
         tailwind.config = {
@@ -964,23 +964,23 @@
     </script>
 
     
-    <!-- Load EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.7.0/email.min.js"></script>
+    <!-- ✅ EmailJS SDK (from jsDelivr) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    <!-- Wait for DOM and SDK to be ready -->
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function () {
-            if (typeof emailjs !== "undefined") {
-                emailjs.init("zz8nFfyjk2LvFx3Hl"); // Replace with your public key
-                console.log("EmailJS initialized!");
-                window.emailJSInitialized = true;
-            } else {
-                console.error("EmailJS SDK not loaded.");
-            }
-        });
+    <!-- ✅ EmailJS initialization -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (typeof emailjs !== "undefined") {
+        emailjs.init("zz8nFfyjk2LvFx3Hl"); // Replace with your actual public key
+        console.log("EmailJS initialized!");
+        window.emailJSInitialized = true;
+        } else {
+        console.error("EmailJS SDK not loaded.");
+        }
+    });
     </script>
 
-    <!-- Load your form logic AFTER everything else -->
+    <!-- ✅ Your custom form logic -->
     <script src="/public/js/contact.js"></script>
 
 </body>
