@@ -12,6 +12,8 @@ Structure:
 ├── site.webmanifest
 ├── README.md
 ├── /assets
+│   └── /node_modules
+│   └── /icons
 │   └── /images
 │       └── logo.png
 │       └── nebula_pwa_rm.png
@@ -20,3 +22,8 @@ Structure:
 ├── /public
 │   └── /js
 │       └── contact.js
+│   └── apple-touch-icon.png
+│   └── favicon.icon
+│   └── nebula-logo.svg
+│   └── suggest-app.html
+│   README.md
