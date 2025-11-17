@@ -137,6 +137,47 @@
         .organization-schema {
             display: none;
         }
+
+        .spline-centered {
+            transform: translateY(-20%);
+        }
+
+        /* For extra large monitors */
+        @media (min-width: 1600px) {
+            .spline-centered {
+                transform: translateY(-25%);
+            }
+        }
+        /* For medium screens (laptops) */
+        @media (max-width: 1200px) {
+            .spline-centered {
+                transform: translateY(-25%);
+            }
+        }
+        /* Tablet & phone tweaks */
+        @media (max-width: 700px) {
+            .spline-centered {
+                /* Lower or reset the upward shift, and recentralize */
+                transform: translateY(0%) translateX(-5%);
+                left: 50%;
+                top: 50%;
+                width: 120vw;   /* Make a little wider than screen for edge-to-edge feel */
+                height: 130vw;   /* Shorter to prevent overspill */
+                max-width: none;
+                max-height: none;
+                object-fit: cover;
+                /* Ensure it's truly centered */
+                transform: translate(-50%, -20%);
+            }
+            /* Extra: remove inset-0 if on mobile, use left/top/transform centering instead */
+            .spline-centered.absolute {
+                left: 50% !important;
+                top: 0 !important;
+                right: auto !important;
+                bottom: auto !important;
+                transform: translate(-50%, -20%);
+            }
+        }
     </style>
 
     <!-- Schema.org markup for Google -->
@@ -178,6 +219,8 @@
           ]
         }
     </script>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
 
 </head>
 <body class="bg-nebula-dark text-galaxy-light">
@@ -244,6 +287,49 @@
         </div>
     </nav>
 
+    <!-- NEW SPLINE HERO SECTION -->
+    <section class="relative w-full h-screen overflow-hidden flex items-center justify-center">
+        <!-- Spline Animation -->
+        <spline-viewer
+          url="https://prod.spline.design/rCTl58RdHz9EpBkU/scene.splinecode"
+          class="absolute inset-0 spline-centered"
+          style="width: 100vw; height: 100vw; object-fit:cover"
+        ></spline-viewer>
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <div class="absolute bottom-0 left-0 w-full h-30 pointer-events-none"
+        style="background: linear-gradient(to top, #0f0524 80%, transparent 100%);"></div>
+
+        <!-- Hero text -->
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+                Nebula Software & Business Solutions
+            </h1>
+            <p class="text-lg md:text-2xl text-nebula-light mt-4 drop-shadow-lg">
+                Empowering your business with modern technology and strategic expertise.
+            </p>
+
+            <button
+              onclick="document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' })"
+              class="mt-10 px-6 py-3 bg-nebula-light text-nebula-dark rounded-lg shadow-lg transition-all hover:bg-white">
+              Explore Nebula
+            </button>
+        </div>
+    </section>
+
+    <script>
+        setInterval(() => {
+          const viewer = document.querySelector('spline-viewer');
+          if (viewer && viewer.shadowRoot) {
+            const logo = viewer.shadowRoot.querySelector('a, #logo, [href*="spline.design"]');
+            if (logo) logo.remove();
+          }
+        }, 500);
+    </script>
+      
+
     <!-- Hero Section -->
     <section class="hero-gradient bg-stars-pattern pt-32 pb-20 md:pt-40 md:pb-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -277,68 +363,64 @@
 
     
     <!-- Technology Stack Section -->
-<section class="py-12 bg-nebula-primary">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-nebula-light mb-8">
-        We harness cutting-edge technologies to deliver smart, scalable solutions
-      </p>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-start text-center">
-        
-        <!-- React -->
-        <div class="flex flex-col items-center">
-          <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-            <i class="fab fa-react text-5xl" title="React"></i>
-          </div>
-          <p class="mt-3 text-sm text-galaxy-accent">Frontend framework for building interactive UIs</p>
+    <section class="py-12 bg-nebula-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-nebula-light mb-8">
+            We harness cutting-edge technologies to deliver smart, scalable solutions
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-start text-center">
+            
+            <!-- React -->
+            <div class="flex flex-col items-center">
+            <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                <i class="fab fa-react text-5xl" title="React"></i>
+            </div>
+            <p class="mt-3 text-sm text-galaxy-accent">Frontend framework for building interactive UIs</p>
+            </div>
+    
+            <!-- Node.js -->
+            <div class="flex flex-col items-center">
+            <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                <i class="fab fa-node-js text-5xl" title="Node.js"></i>
+            </div>
+            <p class="mt-3 text-sm text-galaxy-accent">Backend runtime powering scalable applications</p>
+            </div>
+    
+            <!-- Cloud -->
+            <div class="flex flex-col items-center">
+            <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                <i class="fas fa-cloud text-5xl" title="Cloud Infrastructure"></i>
+            </div>
+            <p class="mt-3 text-sm text-galaxy-accent">Secure and reliable cloud-based infrastructure</p>
+            </div>
+    
+            <!-- Databases -->
+            <div class="flex flex-col items-center">
+            <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                <i class="fas fa-database text-5xl" title="Modern Databases"></i>
+            </div>
+            <p class="mt-3 text-sm text-galaxy-accent">Optimized data management for performance</p>
+            </div>
+    
+            <!-- Analytics -->
+            <div class="flex flex-col items-center">
+            <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                <i class="fas fa-chart-line text-5xl" title="Analytics & Insights"></i>
+            </div>
+            <p class="mt-3 text-sm text-galaxy-accent">Data-driven insights and visualization tools</p>
+            </div>
+    
+            <!-- AI -->
+            <div class="flex flex-col items-center">
+            <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
+                <i class="fas fa-robot text-5xl" title="Artificial Intelligence"></i>
+            </div>
+            <p class="mt-3 text-sm text-galaxy-accent">AI, Intelligent automation and predictive systems</p>
+            </div>
+    
         </div>
-  
-        <!-- Node.js -->
-        <div class="flex flex-col items-center">
-          <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-            <i class="fab fa-node-js text-5xl" title="Node.js"></i>
-          </div>
-          <p class="mt-3 text-sm text-galaxy-accent">Backend runtime powering scalable applications</p>
         </div>
-  
-        <!-- Cloud -->
-        <div class="flex flex-col items-center">
-          <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-            <i class="fas fa-cloud text-5xl" title="Cloud Infrastructure"></i>
-          </div>
-          <p class="mt-3 text-sm text-galaxy-accent">Secure and reliable cloud-based infrastructure</p>
-        </div>
-  
-        <!-- Databases -->
-        <div class="flex flex-col items-center">
-          <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-            <i class="fas fa-database text-5xl" title="Modern Databases"></i>
-          </div>
-          <p class="mt-3 text-sm text-galaxy-accent">Optimized data management for performance</p>
-        </div>
-  
-        <!-- Analytics -->
-        <div class="flex flex-col items-center">
-          <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-            <i class="fas fa-chart-line text-5xl" title="Analytics & Insights"></i>
-          </div>
-          <p class="mt-3 text-sm text-galaxy-accent">Data-driven insights and visualization tools</p>
-        </div>
-  
-        <!-- AI -->
-        <div class="flex flex-col items-center">
-          <div class="h-12 text-nebula-light opacity-80 hover:opacity-100 transition duration-300">
-            <i class="fas fa-robot text-5xl" title="Artificial Intelligence"></i>
-          </div>
-          <p class="mt-3 text-sm text-galaxy-accent">AI, Intelligent automation and predictive systems</p>
-        </div>
-  
-      </div>
-    </div>
-  </section>
-  
-
-
-
+    </section>
 
     <!-- Solutions Section -->
     <section id="solutions" class="py-20 bg-nebula-dark">
