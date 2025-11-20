@@ -234,7 +234,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-nebula-dark/90 backdrop-blur-md border-b border-nebula-primary">
+    <nav id="main-navbar" class="fixed w-full z-50 bg-transparent backdrop-blur-none">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
@@ -288,7 +288,7 @@
     </nav>
 
     <!-- NEW SPLINE HERO SECTION -->
-    <section class="relative w-full h-screen overflow-hidden flex items-center justify-center">
+    <section id="spline-section" class="relative w-full h-screen overflow-hidden flex items-center justify-center">
         <!-- Spline Animation -->
         <spline-viewer
           url="https://prod.spline.design/rCTl58RdHz9EpBkU/scene.splinecode"
@@ -311,11 +311,13 @@
                 Empowering your business with modern technology and strategic expertise.
             </p>
 
-            <button
-              onclick="document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' })"
-              class="mt-10 px-6 py-3 bg-nebula-light text-nebula-dark rounded-lg shadow-lg transition-all hover:bg-white">
-              Explore Nebula
-            </button>
+            <div class="mt-8 flex flex-col items-center">
+                <a href="#contact"
+                   class="px-8 py-3 border-2 border-nebula-light text-white font-semibold rounded-lg hover:bg-nebula-primary transition duration-300 text-center">
+                  Explore Nebula
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -331,7 +333,7 @@
       
 
     <!-- Hero Section -->
-    <section class="hero-gradient bg-stars-pattern pt-32 pb-20 md:pt-40 md:pb-32">
+    <section id="home-info" class="hero-gradient bg-stars-pattern pt-32 pb-20 md:pt-40 md:pb-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <div class="mb-12 lg:mb-0">
@@ -1088,4 +1090,25 @@
     <script src="/public/js/contact.js"></script>
 
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const splineSection = document.getElementById('spline-section');
+      const navbar = document.getElementById('main-navbar');
+  
+      function updateNavbarBlur() {
+        const splineBottom = splineSection.offsetTop + splineSection.offsetHeight;
+        if (window.scrollY > splineBottom) {
+          navbar.classList.remove('backdrop-blur-none');
+          navbar.classList.add('backdrop-blur-sm', 'border-b', 'border-nebula-primary');
+        } else {
+          navbar.classList.remove('backdrop-blur-sm', 'border-b', 'border-nebula-primary');
+          navbar.classList.add('backdrop-blur-none');
+        }
+      }
+  
+      window.addEventListener('scroll', updateNavbarBlur);
+      updateNavbarBlur();
+    });
+  </script>
 </html>
