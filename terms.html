@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service | Nebula</title>
+
+    <!-- Preload important resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind + Inter Font -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <!-- Favicon and Apple Touch Icons -->
+     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nebula: {
+                            dark: '#0f0524',
+                            primary: '#2a0b45',
+                            secondary: '#4a148c',
+                            accent: '#7b1fa2',
+                            light: '#e1bee7',
+                        },
+                        galaxy: {
+                            dark: '#0d1b2a',
+                            primary: '#1b263b',
+                            secondary: '#415a77',
+                            accent: '#778da9',
+                            light: '#e0e1dd',
+                        },
+                        splinecolor: {
+                            lilac: '#EAE6FF', 
+                            lilac2: '#E7E3FF',
+                            lightblue: '#DDEAFF',
+                            lightblue2: '#E2F0FF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-nebula': 'linear-gradient(135deg, #2a0b45 0%, #4a148c 50%, #7b1fa2 100%)',
+                        'stars-pattern': "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(42,11,69,0.95) 0%, rgba(74,20,140,0.95) 50%, rgba(123,31,162,0.95) 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #e1bee7;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .app-badge {
+            transition: all 0.3s ease;
+        }
+        
+        .app-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Schema.org structured data styling */
+        .organization-schema {
+            display: none;
+        }
+
+        .spline-centered {
+            transform: translateY(-20%);
+        }
+
+        /* For extra large monitors */
+        @media (min-width: 1600px) {
+            .spline-centered {
+                transform: translateY(-25%);
+            }
+        }
+        /* For medium screens (laptops) */
+        @media (max-width: 1200px) {
+            .spline-centered {
+                transform: translateY(-25%);
+            }
+        }
+        /* Tablet & phone tweaks */
+        @media (max-width: 700px) {
+            .spline-centered {
+                /* Lower or reset the upward shift, and recentralize */
+                transform: translateY(0%) translateX(-5%);
+                left: 50%;
+                top: 50%;
+                width: 120vw;   /* Make a little wider than screen for edge-to-edge feel */
+                height: 130vw;   /* Shorter to prevent overspill */
+                max-width: none;
+                max-height: none;
+                object-fit: cover;
+                /* Ensure it's truly centered */
+                transform: translate(-50%, -20%);
+            }
+            /* Extra: remove inset-0 if on mobile, use left/top/transform centering instead */
+            .spline-centered.absolute {
+                left: 50% !important;
+                top: 0 !important;
+                right: auto !important;
+                bottom: auto !important;
+                transform: translate(-50%, -20%);
+            }
+        }
+
+    </style>
+</head>
+
+<body class="bg-nebula-dark text-galaxy-light overflow-x-hidden">
+
+<!-- ============================
+        NAVBAR (EXACT COPY)
+============================ -->
+<!-- Navigation -->
+<nav id="main-navbar" class="fixed w-full z-50 bg-transparent backdrop-blur-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center">
+                <a href="/index.html" class="flex items-center">
+                    <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                        <img src="/assets/images/logo.png" alt="Nebula Logo" class="w-full h-full object-contain">
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-white">Nebula</span>
+                </a>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-8">
+                    <a href="/index.html#solutions" class="nav-link text-white px-3 py-2 text-sm font-medium">Solutions</a>
+                    <a href="/index.html#services" class="nav-link text-white px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="/index.html#process" class="nav-link text-white px-3 py-2 text-sm font-medium">Process</a>
+                    <a href="/index.html#apps" class="nav-link text-white px-3 py-2 text-sm font-medium">Our Apps</a>
+                    <a href="/index.html#about" class="nav-link text-white px-3 py-2 text-sm font-medium">About</a>
+                    <a href="/index.html#contact" class="nav-link text-white px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <a href="/index.html#services" class="px-4 py-2 border-2 border-nebula-light text-white font-semibold rounded-lg backdrop-blur-sm hover:bg-nebula-primary transition duration-300 text-center text-sm">
+                    Get Started
+                </a>
+            </div>
+            <div class="-mr-2 flex md:hidden">
+                <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-nebula-light hover:text-white hover:bg-nebula-primary focus:outline-none">
+                    <span class="sr-only">Open main menu</span>
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const splineSection = document.getElementById('spline-section');
+          const navbar = document.getElementById('main-navbar');
+      
+          function updateNavbarBlur() {
+            const splineBottom = splineSection.offsetTop + splineSection.offsetHeight;
+            if (window.scrollY > splineBottom) {
+              navbar.classList.remove('backdrop-blur-none');
+              navbar.classList.add('backdrop-blur-sm', 'border-b', 'border-nebula-primary');
+            } else {
+              navbar.classList.remove('backdrop-blur-sm', 'border-b', 'border-nebula-primary');
+              navbar.classList.add('backdrop-blur-none');
+            }
+          }
+      
+          window.addEventListener('scroll', updateNavbarBlur);
+          updateNavbarBlur();
+        });
+      </script>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-nebula-primary">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#solutions" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Solutions</a>
+            <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Services</a>
+            <a href="#process" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Process</a>
+            <a href="#apps" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Our Apps</a>
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">About</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-nebula-secondary">Contact</a>
+        </div>
+        <div class="pt-4 pb-3 border-t border-nebula-secondary px-3">
+            <a href="#services" class="block w-full px-4 py-2 text-center rounded-md shadow bg-nebula-light text-nebula-dark backdrop-blur-sm font-medium hover:bg-white">
+                Get Started
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="h-20"></div>
+
+<!-- ============================
+         PAGE HEADER
+============================ -->
+<section class="relative py-32 text-center overflow-hidden bg-gradient-to-br from-nebula-primary via-nebula-secondary to-nebula-accent shadow-2xl">
+    <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-white drop-shadow-md">Terms of Service</h1>
+    <p class="text-xl mt-6 mb-3 max-w-2xl mx-auto text-white font-medium">
+      Understand your rights and responsibilities when using Nebula’s software, consulting, and digital services.
+    </p>
+    <p class="text-base max-w-xl mx-auto text-white/80 mt-2">
+      By accessing any Nebula product or service, you agree to these legally binding terms designed to ensure clarity, fairness, and protection for both parties.
+    </p>
+    <div class="absolute left-0 right-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-nebula-dark"></div>
+  </section>
+  
+
+<!-- ============================
+         MAIN CONTENT
+============================ -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto space-y-10 leading-relaxed text-galaxy-accent">
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">1. Acceptance of Terms</h2>
+            <p>By using Nebula’s website, software, consulting services, or mobile applications (“Services”), you agree to these Terms of Service (“Terms”). If you do not agree with these Terms, do not use our Services.</p>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">2. Rights to Modify or Update Terms</h2>
+            <p>Nebula may update these Terms at any time. Material changes will be posted on this page with a new effective date. Continued use signifies acceptance of the revised Terms.</p>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">3. Service Eligibility & Accounts</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>You must be at least 18 years old (or legal age in your jurisdiction) to use Nebula Services. Minors must have permission from a legal guardian.</li>
+            <li>You are responsible for maintaining confidentiality of any account credentials. Notify us immediately of any unauthorized use.</li>
+            <li>You agree your registration and use of our Services will not violate any laws or regulations.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">4. Acceptable Use & Prohibited Conduct</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>No illegal, harmful, harassing, infringing, or obscene use of Nebula Services.</li>
+            <li>No attempt to gain unauthorized access, disrupt, or damage any part of the Services or systems.</li>
+            <li>No unauthorized scraping, reverse engineering, copying, or resale.</li>
+            <li>No spam, abusive, or fraudulent activity.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">5. Software, IP, and Licensing</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>Nebula grants you a limited, non-exclusive, non-transferable license to use our Services for your internal business or personal purposes only.</li>
+            <li>All content, software, and materials remain the exclusive property of Nebula or its licensors, unless stated otherwise in a custom agreement.</li>
+            <li>Customer feedback may be used by Nebula without further obligation or compensation.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">6. Consulting Projects & Deliverables</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>Consulting projects may be subject to separate agreements. Custom term overrides will govern project scope, payment, timelines, and IP ownership.</li>
+            <li>Unless otherwise stated, Nebula retains all rights until payment is received in full.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">7. Mobile Apps & User Submissions</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>You retain rights to content you submit but grant Nebula a license to use, store, and display it for providing Service functionality.</li>
+            <li>Prohibited content: unlawful, offensive, malicious, or infringing submissions.</li>
+            <li>Nebula reserves the right to remove or restrict content violating these Terms.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">8. Service Changes & Termination</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>Nebula may modify, suspend, or terminate Services at any time without notice. We aim to provide 30 days’ notice for material discontinuations where feasible.</li>
+            <li>We may suspend or terminate accounts for suspected violations without liability.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">9. Payment Terms</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>Fees for paid Services are outlined at point of sale or in custom agreements.</li>
+            <li>Late or missed payments may result in suspension of Service or additional fees.</li>
+            <li>All fees are non-refundable except as required by law.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">10. Disclaimers & Limitation of Liability</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>Services are provided “as-is” and “as available” without warranties of any kind.</li>
+            <li>Nebula shall not be liable for indirect, incidental, consequential, or punitive damages, even if advised of the possibility.</li>
+            <li>Total liability under these terms shall not exceed the amount paid by you for the Services in the prior 12 months.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">11. Indemnification</h2>
+            <p>You agree to indemnify and hold Nebula, its directors, employees, and partners harmless from any claims, damages, or expenses arising from your violation of these Terms.</p>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">12. DMCA, Copyright, & Infringement Policy</h2>
+            <p>If you believe your copyright has been violated, contact us at <a href="mailto:legal@nebula.software" class="underline">legal@nebula.software</a>. We will quickly respond per the DMCA.</p>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">13. Dispute Resolution & Arbitration</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>All disputes will be resolved by binding individual arbitration under Utah law.</li>
+            <li>Class actions or jury trials are expressly waived.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">14. Miscellaneous</h2>
+            <ul class="list-disc ml-6 space-y-1">
+            <li>This agreement is governed by the laws of Utah, USA.</li>
+            <li>If any provision is held invalid, the remainder of these Terms remains in effect.</li>
+            <li>This document represents the entire agreement unless a signed agreement states otherwise.</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h2 class="text-3xl font-semibold text-white mb-3">15. Contact Information</h2>
+            <p>For Service questions, support, or legal notices: <a href="mailto:legal@nebulauscorp.com" class="underline">legal@nebulauscorp.com</a></p>
+        </div>
+    
+        <p class="text-sm mt-12 text-galaxy-accent">Last updated: November 2025</p>
+        </div>
+  </section>
+  
+
+
+<!-- ============================
+FOOTER 
+============================ -->
+    <footer class="bg-nebula-dark border-t border-nebula-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <a href="/index.html#top" class="flex items-center">
+                            <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                <img src="/assets/images/logo.png" alt="Nebula Logo" class="w-full h-full object-contain">
+                            </div>
+                            <span class="ml-3 text-xl font-bold text-white">Nebula</span>
+                        </a>
+                    </div>
+                    <p class="text-galaxy-accent mb-4">
+                        End-to-end software solutions and data-driven business strategies for the modern enterprise.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/nebulatechspace" target="_blank" class="text-galaxy-accent hover:text-nebula-light transition duration-300">
+                            <i class="fab fa-x twitter-logo"></i> <!-- X logo for Twitter -->
+                        </a>
+                        <a href="https://www.linkedin.com/company/nebula-software-technology/" target="_blank" class="text-galaxy-accent hover:text-nebula-light transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/nebula.software.solutions?igsh=OHR3enJ5ZzRscmh0&utm_source=qr" target="_blank" class="text-galaxy-accent hover:text-nebula-light transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@nebula.software.company?_t=8oxBiAZJfAt&_r=1" target="_blank" class="text-galaxy-accent hover:text-nebula-light transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Solutions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html#solutions" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Web Platforms</a></li>
+                        <li><a href="/index.html#solutions" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Custom Applications</a></li>
+                        <li><a href="/index.html#solutions" class="text-galaxy-accent hover:text-nebula-light transition duration-300">IT Infrastructure</a></li>
+                        <li><a href="/index.html#solutions" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Data Analytics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html#services" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Discovery & Strategy</a></li>
+                        <li><a href="/index.html#services" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Custom Development</a></li>
+                        <li><a href="/index.html#services" class="text-galaxy-accent hover:text-nebula-light transition duration-300">System Integration</a></li>
+                        <li><a href="/index.html#services" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Support & Training</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html#about" class="text-galaxy-accent hover:text-nebula-light transition duration-300">About Us</a></li>
+                        <li><a href="https://www.linkedin.com/company/nebula-software-technology/" target="_blank" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Careers</a></li>
+                        <li><a href="https://www.linkedin.com/company/nebula-software-technology/" target="_blank" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Blog</a></li>
+                        <li><a href="/index.html#contact" class="text-galaxy-accent hover:text-nebula-light transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-nebula-primary mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-galaxy-accent mb-4 md:mb-0">
+                    &copy; 2021 Nebula. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="/privacy.html" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Privacy Policy</a>
+                    <a href="/terms.html" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

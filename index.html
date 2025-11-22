@@ -184,6 +184,44 @@
                 transform: translate(-50%, -20%);
             }
         }
+
+        .carousel-frame {
+            position: relative;
+            width: 100%;
+            height: 350px; /* Matches your existing container height */
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* Blurred background filler */
+        .carousel-frame::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px) brightness(0.6);
+            transform: scale(1.2);
+        }
+
+        /* The real image — always fully visible */
+        .carousel-frame img {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            margin: auto;
+            display: block;
+        }
+
+        /* Per-image background blur source */
+        .carousel-frame:nth-child(1)::before { background-image: url('/assets/images/project1_dashboard.jpg'); }
+        .carousel-frame:nth-child(2)::before { background-image: url('/assets/images/project2_analysis.jpg'); }
+        .carousel-frame:nth-child(3)::before { background-image: url('/assets/images/project3_system.jpg'); }
+        .carousel-frame:nth-child(4)::before { background-image: url('/assets/images/project4_ecommerce.jpg'); }
+        .carousel-frame:nth-child(5)::before { background-image: url('/assets/images/project5_finance.jpg'); }
+
     </style>
 
     <!-- Schema.org markup for Google -->
@@ -361,12 +399,12 @@
                 <div class="relative">
                     <div class="relative z-10 animate-float rounded-xl shadow-2xl border-4 border-nebula-light overflow-hidden" style="width:100%; max-width:500px;">
                         <div id="carousel-images" class="flex transition-transform duration-700" style="width:100%;">
-                          <img src="/assets/images/project1_dashboard.jpg" alt="..." class="w-full h-auto object-cover">
-                          <img src="/assets/images/project2_analysis.jpg" alt="..." class="w-full h-auto object-cover">
-                          <img src="/assets/images/project3_system.jpg" alt="..." class="w-full h-auto object-cover">
-                          <img src="/assets/images/project4_ecommerce.jpg" alt="..." class="w-full h-auto object-cover">
-                          <img src="/assets/images/project5_finance.jpg" alt="..." class="w-full h-auto object-cover">
-                        </div>
+                            <div class="carousel-frame"><img src="/assets/images/project1_dashboard.jpg" alt="Interactive business dashboard interface showcasing real-time metrics"></div>
+                            <div class="carousel-frame"><img src="/assets/images/project2_analysis.jpg" alt="Data analytics screen displaying charts and performance insights"></div>
+                            <div class="carousel-frame"><img src="/assets/images/project3_system.jpg" alt="System architecture view highlighting integrated software components"></div>
+                            <div class="carousel-frame"><img src="/assets/images/project4_ecommerce.jpg" alt="E-commerce platform interface featuring product and sales management tools"></div>
+                            <div class="carousel-frame"><img src="/assets/images/project5_finance.jpg" alt="Financial reporting dashboard with revenue, expenses, and KPI visualizations"></div>
+                        </div>                        
                         <button id="carousel-prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-nebula-dark rounded-full px-2 py-1">‹</button>
                         <button id="carousel-next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-nebula-dark rounded-full px-2 py-1">›</button>
                     </div>
@@ -1032,8 +1070,8 @@
                     &copy; 2021 Nebula. All rights reserved.
                 </p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Privacy Policy</a>
-                    <a href="#" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Terms of Service</a>
+                    <a href="/privacy.html" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Privacy Policy</a>
+                    <a href="/terms.html" class="text-galaxy-accent hover:text-nebula-light transition duration-300 text-sm">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -1122,8 +1160,6 @@
           imagesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
         };
     </script>
-        
-
 </body>
 
 <script>
@@ -1146,4 +1182,6 @@
       updateNavbarBlur();
     });
   </script>
+
+    
 </html>

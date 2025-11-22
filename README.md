@@ -2,13 +2,15 @@
 Nebula Corp. website
 
 
-This project is protected. You cannot use, modify, and distribute the code, images, designs or anythign on this site.
+This project is protected. You cannot use, modify, and distribute the code, images, designs or anything on this site.
 
 
 Structure:
 /nebula-us-corp root
 │
 ├── index.html
+├── privacy.html      
+├── terms.html       
 ├── site.webmanifest
 ├── README.md
 ├── /assets
