@@ -359,8 +359,16 @@
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="relative z-10 animate-float">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Digital transformation" class="rounded-xl shadow-2xl border-4 border-nebula-light">
+                    <div class="relative z-10 animate-float rounded-xl shadow-2xl border-4 border-nebula-light overflow-hidden" style="width:100%; max-width:500px;">
+                        <div id="carousel-images" class="flex transition-transform duration-700" style="width:100%;">
+                          <img src="/assets/images/project1_dashboard.jpg" alt="..." class="w-full h-auto object-cover">
+                          <img src="/assets/images/project2_analysis.jpg" alt="..." class="w-full h-auto object-cover">
+                          <img src="/assets/images/project3_system.jpg" alt="..." class="w-full h-auto object-cover">
+                          <img src="/assets/images/project4_ecommerce.jpg" alt="..." class="w-full h-auto object-cover">
+                          <img src="/assets/images/project5_finance.jpg" alt="..." class="w-full h-auto object-cover">
+                        </div>
+                        <button id="carousel-prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-nebula-dark rounded-full px-2 py-1">‹</button>
+                        <button id="carousel-next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-nebula-dark rounded-full px-2 py-1">›</button>
                     </div>
                     <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-nebula-accent rounded-full opacity-20 blur-xl"></div>
                     <div class="absolute -top-6 -right-6 w-40 h-40 bg-nebula-secondary rounded-full opacity-20 blur-xl"></div>
@@ -1094,6 +1102,27 @@
 
     <!-- ✅ Your custom form logic -->
     <script src="/public/js/contact.js"></script>
+
+    <script>
+        const imagesContainer = document.getElementById('carousel-images');
+        const totalSlides = imagesContainer.children.length;
+        let currentIndex = 0;
+        // Auto-scroll
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          imagesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }, 3500);
+        // Manual controls
+        document.getElementById('carousel-prev').onclick = function () {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          imagesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        };
+        document.getElementById('carousel-next').onclick = function () {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          imagesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        };
+    </script>
+        
 
 </body>
 
