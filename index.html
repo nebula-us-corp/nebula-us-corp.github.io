@@ -159,6 +159,9 @@
             .spline-centered {
                 transform: translateY(-25%);
             }
+            #spline-skeleton {
+                display: none !important;
+            }
         }
         /* Tablet & phone tweaks */
         @media (max-width: 700px) {
@@ -182,6 +185,9 @@
                 right: auto !important;
                 bottom: auto !important;
                 transform: translate(-50%, -20%);
+            }
+            #spline-skeleton {
+                display: none !important;
             }
         }
 
@@ -221,6 +227,20 @@
         .carousel-frame:nth-child(3)::before { background-image: url('/assets/images/project3_system.jpg'); }
         .carousel-frame:nth-child(4)::before { background-image: url('/assets/images/project4_ecommerce.jpg'); }
         .carousel-frame:nth-child(5)::before { background-image: url('/assets/images/project5_finance.jpg'); }
+
+
+        /* Skeleton Loader */
+        .skeleton {
+            background: linear-gradient(90deg, #2a0b45 25%, #4a148c 50%, #2a0b45 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 8px;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
 
     </style>
 
@@ -333,18 +353,33 @@
 
     <!-- NEW SPLINE HERO SECTION -->
     <section id="spline-section" class="relative w-full h-screen overflow-hidden flex items-center justify-center">
+
+        <!-- Skeleton for Spline -->
+        <div id="spline-skeleton"
+            class="absolute inset-0 skeleton"
+            style="width: 100%; height: 100%; z-index:1;">
+        </div>
+
         <!-- Spline Animation -->
         <spline-viewer
-          url="https://prod.spline.design/rCTl58RdHz9EpBkU/scene.splinecode"
-          class="absolute inset-0 spline-centered"
-          style="width: 100vw; height: 100vw; object-fit:cover"
+        url="https://prod.spline.design/rCTl58RdHz9EpBkU/scene.splinecode"
+        class="absolute inset-0 spline-centered"
+        style="width: 100vw; height: 100vw; object-fit:cover; z-index:2;"
         ></spline-viewer>
 
+        <!-- Correct event listener for Spline viewer -->
+        <script>
+            document.querySelector("spline-viewer").addEventListener("on-load", () => {
+                const s = document.getElementById("spline-skeleton");
+                if (s) s.style.display = "none";
+            });
+        </script>
+
         <!-- Dark overlay -->
-        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute inset-0 bg-black/50" style="z-index:3;"></div>
 
         <div class="absolute bottom-0 left-0 w-full h-30 pointer-events-none"
-        style="background: linear-gradient(to top, #0f0524 80%, transparent 100%);"></div>
+        style="background: linear-gradient(to top, #0f0524 80%, transparent 100%); z-index:4;"></div>
 
         <!-- Hero text -->
         <div class="relative z-10 text-center px-6">
@@ -357,11 +392,10 @@
 
             <div class="mt-8 flex flex-col items-center">
                 <a href="#contact"
-                   class="px-8 py-3 border-2 border-nebula-light text-white font-semibold rounded-lg backdrop-blur-sm hover:bg-nebula-primary transition duration-300 text-center">
-                  Explore Nebula
+                    class="px-8 py-3 border-2 border-nebula-light text-white font-semibold rounded-lg backdrop-blur-sm hover:bg-nebula-primary transition duration-300 text-center">
+                Explore Nebula
                 </a>
             </div>
-
         </div>
     </section>
 
